@@ -25,6 +25,8 @@ module.exports = {
     'prettier/prettier': ['error', { singleQuote: true, semi: true }],
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     '@typescript-eslint/explicit-function-return-type': ['off'],
+    '@typescript-eslint/explicit-module-boundary-types': ['off'],
+
     'react/prop-types': 'off',
     'tsc/config': [
       'error',

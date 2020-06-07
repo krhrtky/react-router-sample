@@ -10,7 +10,7 @@
       "dom"
     ],
     "types": [
-      "react",
+      "react"
     ],
     "baseUrl": "./",
     "paths": {
@@ -23,7 +23,6 @@
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true
   },
