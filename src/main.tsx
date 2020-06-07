@@ -1,8 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Route, Switch } from 'react-router-dom';
-import { App } from './pages/App';
-import { Authorized } from '@/pages/authorized/Authorized';
 import { createBrowserHistory, History } from 'history';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import {
@@ -12,6 +9,8 @@ import {
 } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import { Navigation } from '@/pages/Navigation';
+import { renderRoutes } from 'react-router-config';
+import { routes } from '@/routes/routes';
 
 interface ExtendedWindow extends Window {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
@@ -40,14 +39,7 @@ const Main = () => {
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <Navigation />
-        <Switch>
-          <Route exact path="/" component={App}>
-            <App />
-          </Route>
-          <Route exact path="/authorized" component={Authorized}>
-            <Authorized />
-          </Route>
-        </Switch>
+        {renderRoutes(routes)}
       </ConnectedRouter>
     </Provider>
   );
