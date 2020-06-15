@@ -22,7 +22,10 @@ module.exports = {
   },
   rules: {
     semi: ['error', 'always'],
-    'prettier/prettier': ['error', { singleQuote: true, semi: true }],
+    'prettier/prettier': [
+      'error',
+      { singleQuote: true, semi: true, arrowParens: 'avoid' },
+    ],
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     '@typescript-eslint/explicit-function-return-type': ['off'],
     '@typescript-eslint/explicit-module-boundary-types': ['off'],
