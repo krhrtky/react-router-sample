@@ -1,44 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createBrowserHistory, History } from 'history';
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
-import {
-  routerMiddleware,
-  connectRouter,
-  ConnectedRouter,
-} from 'connected-react-router';
+import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
-import { routes } from '@/routes/routes';
-import { reducer } from '@/store/reducer';
-
-interface ExtendedWindow extends Window {
-  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-}
-declare let window: ExtendedWindow;
-
-const history = createBrowserHistory();
-
-const composeEnhancers =
-  typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    : compose;
-
-const createInitialStore = (history: History) =>
-  createStore(
-    combineReducers({
-      router: connectRouter(history),
-      user: reducer,
-    }),
-    composeEnhancers(applyMiddleware(routerMiddleware(history)))
-  );
-
-const store = createInitialStore(history);
+import { routes } from '@/routes';
+import { Store } from '@/store';
 
 const Main = () => {
   return (
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
+    <Provider store={Store.initial}>
+      <ConnectedRouter history={Store.history}>
         {renderRoutes(routes)}
       </ConnectedRouter>
     </Provider>
