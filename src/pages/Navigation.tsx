@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { push } from 'connected-react-router';
 import { action } from '@/store/action';
-import type { Store } from "@/store";
+import type { Store } from '@/store';
 
 export const Navigation = () => {
   const user = useSelector((store: Store) => store.user);
