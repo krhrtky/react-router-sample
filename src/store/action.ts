@@ -3,7 +3,7 @@ const Action = {
   LOGOUT: 'LOGOUT',
 } as const;
 
-export const creator = {
+export const action = {
   login: () => ({
     type: Action.LOGIN,
   }),
